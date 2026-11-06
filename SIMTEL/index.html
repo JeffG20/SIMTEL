@@ -6,6 +6,8 @@
   <meta name="description" content="SIMTEL - Servicios de Ingeniería y Telecomunicaciones">
   <title>SIMTEL | Ingeniería y Telecomunicaciones</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
 </head>
 <body>
   <header class="top-header">
@@ -22,9 +24,10 @@
     </form>
     <div class="nav-actions">
       <button type="button" title="Mi cuenta" data-modal="login" aria-label="Mi cuenta">👤</button>
-      <button type="button" title="Carrito" id="cartButton" aria-label="Carrito">🛒</button>
     </div>
   </nav>
+
+  
 
   <aside class="sidebar" id="sidebar" aria-label="Menú lateral">
     <button class="close-menu" id="closeMenu" aria-label="Cerrar menú">×</button>
@@ -35,18 +38,58 @@
     <a href="#productos">📦 Productos</a>
     <a href="#contacto">📞 Contáctanos</a>
     <a href="#contacto">📋 PQRS</a>
+    <a href="#imcorporate a nosotros">💼 Imcorporate</a>
+    <a href="#Escribenos"> 📮 Chat </a>
   </aside>
   <div class="overlay" id="overlay"></div>
 
-  <main>
+  
+<main>
     <section class="hero" id="inicio">
-      <div class="hero-content">
-        <span>Bienvenido a SIMTEL</span>
-        <h2>Soluciones en ingeniería y telecomunicaciones</h2>
-        <p>Ofrecemos servicios profesionales, productos, insumos y maquinaria para proyectos de ingeniería, construcción y telecomunicaciones.</p>
-        <a href="#servicios" class="btn-primary">Explorar servicios →</a>
-      </div>
+
+        <!-- CARRUSEL DE FOTOGRAFÍAS -->
+        <div class="hero-slides">
+
+            <img src="images/obra1.jpg"hero-slide active" alt="Proyectos de ingeniería">
+
+            <img src="images/obra2.jpg" class="hero-slide" alt="Construcción e infraestructura">
+
+            <img src="images/obra3.jpg" class="hero-slide" alt="Telecomunicaciones">
+
+            <img src="images/obra4.jpg" class="hero-slide" alt="Servicios técnicos">
+
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="hero-content">
+
+            <span>Bienvenido a SIMTEL</span>
+
+            <h2>Soluciones en ingeniería y telecomunicaciones</h2>
+
+            <p>
+                Ofrecemos servicios profesionales, productos,
+                insumos y maquinaria para proyectos de ingeniería,
+                construcción y telecomunicaciones.
+            </p>
+
+            <a href="#servicios" class="btn-primary">
+                Explorar servicios →
+            </a>
+
+        </div>
+
+        <!-- INDICADORES -->
+        <div class="hero-indicators">
+            <button class="indicator active" data-slide="0" aria-label="Imagen 1"></button>
+            <button class="indicator" data-slide="1" aria-label="Imagen 2"></button>
+            <button class="indicator" data-slide="2" aria-label="Imagen 3"></button>
+            <button class="indicator" data-slide="3" aria-label="Imagen 4"></button>
+        </div>
+
     </section>
+</main>
+
 
     <section class="section" id="nosotros">
       <div class="section-title">
@@ -142,6 +185,61 @@
       <p class="modal-note">Demostración visual: el registro y el inicio de sesión requieren un backend.</p>
     </div>
   </div>
+
+  <div class="simtel-chat">
+
+    <button class="chat-toggle" id="chatToggle" aria-label="Abrir chat de ayuda">
+        <i class="fa-solid fa-headset"></i>
+        <span class="chat-notification"></span>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+
+        <div class="chat-header">
+            <div>
+                <strong>Asistente SIMTEL</strong>
+                <small>● Estamos para ayudarte</small>
+            </div>
+            <button id="closeChat" aria-label="Cerrar chat">×</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="bot-message">
+                ¡Hola! 👋 Bienvenido a SIMTEL.
+                ¿En qué podemos ayudarte?
+            </div>
+
+            <div class="quick-options">
+                <button data-question="Quiero información sobre servicios">
+                    🛠 Servicios
+                </button>
+                <button data-question="Quiero consultar productos">
+                    📦 Productos
+                </button>
+                <button data-question="Quiero hablar con un asesor">
+                    👨‍💼 Hablar con un asesor
+                </button>
+                <button data-question="Area IT">
+                    🔧 Area IT
+                </button>
+            </div>
+        </div>
+
+        <form class="chat-input" id="chatForm">
+            <input
+                type="text"
+                id="chatText"
+                placeholder="Escribe tu mensaje..."
+                autocomplete="off"
+                required
+            >
+            <button type="submit" aria-label="Enviar mensaje">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+
+    </div>
+</div>
 
   <script src="js/app.js"></script>
 </body>

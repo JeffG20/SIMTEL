@@ -76,3 +76,332 @@ footer { text-align: center; padding: 20px; background: #091d32; color: white; f
   .hero { padding: 30px 20px; }
   .section-title h2 { font-size: 25px; }
 }
+
+
+/* CHAT FLOTANTE SIMTEL */
+
+.simtel-chat {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+}
+
+/* BOTÓN PRINCIPAL */
+
+.chat-toggle {
+    width: 62px;
+    height: 62px;
+    border: none;
+    border-radius: 50%;
+    background: #1557a5;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 18px #0004;
+    transition: .3s;
+    position: relative;
+}
+
+.chat-toggle:hover {
+    background: #0d3d78;
+    transform: scale(1.08);
+}
+
+.chat-notification {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    background: #28c76f;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+/* VENTANA DEL CHAT */
+
+.chat-window {
+    display: none;
+    position: absolute;
+    bottom: 78px;
+    right: 0;
+    width: 340px;
+    max-width: calc(100vw - 40px);
+    height: 440px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px #0003;
+    flex-direction: column;
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+/* CABECERA */
+
+.chat-header {
+    background: #1557a5;
+    color: white;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header strong {
+    display: block;
+    font-size: 16px;
+}
+
+.chat-header small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #d8eaff;
+}
+
+.chat-header button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* MENSAJES */
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f4f7fb;
+}
+
+.bot-message,
+.user-message {
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    max-width: 90%;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.bot-message {
+    background: white;
+    color: #26374a;
+    border: 1px solid #e5eaf0;
+}
+
+.user-message {
+    background: #1557a5;
+    color: white;
+    margin-left: auto;
+}
+
+/* OPCIONES */
+
+.quick-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.quick-options button {
+    background: white;
+    color: #1557a5;
+    border: 1px solid #1557a5;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.quick-options button:hover {
+    background: #e5f1ff;
+}
+
+/* CAMPO DE MENSAJE */
+
+.chat-input {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    gap: 8px;
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 11px;
+    outline: none;
+}
+
+.chat-input button {
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #1557a5;
+    color: white;
+    cursor: pointer;
+}
+
+/* CELULARES */
+
+@media(max-width: 480px) {
+    .simtel-chat {
+        left: 15px;
+        bottom: 15px;
+    }
+
+    .chat-window {
+        width: calc(100vw - 30px);
+        height: 420px;
+    }
+}
+
+
+
+
+/* HERO CON CARRUSEL */
+
+.hero {
+    position: relative;
+    min-height: 560px;
+    margin: 20px;
+    padding: 55px 5%;
+    border-radius: 16px;
+    background: #102b49;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+}
+
+/* CONTENEDOR DE IMÁGENES */
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* DEGRADADO PARA INTEGRAR LAS FOTOS CON EL FONDO */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #102b49 0%,
+            rgba(16, 43, 73, 0.95) 25%,
+            rgba(16, 43, 73, 0.65) 55%,
+            rgba(16, 43, 73, 0.15) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #102b49 0%,
+            transparent 35%
+        );
+}
+
+/* TEXTO SOBRE LAS FOTOGRAFÍAS */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    color: white;
+}
+
+.hero-content span {
+    color: #8bc4ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-content h2 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 20px 0;
+}
+
+.hero-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* INDICADORES DEL CARRUSEL */
+
+.hero-indicators {
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 11px;
+    height: 11px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.indicator.active {
+    background: white;
+    width: 30px;
+    border-radius: 10px;
+}
+
+/* ADAPTACIÓN A MÓVILES */
+
+@media(max-width: 550px) {
+    .hero {
+        min-height: 450px;
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    .hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(16,43,73,0.96),
+            rgba(16,43,73,0.65)
+        );
+    }
+
+    .hero-indicators {
+        right: 20px;
+        bottom: 18px;
+    }
+}
